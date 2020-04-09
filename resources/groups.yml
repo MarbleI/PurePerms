@@ -2,6 +2,7 @@
 # PurePerms by 64FF00 (xktiverz@gmail.com, @64ff00 for Twitter)
 
 ---
+//Guest --------------------------------------------------------------------------------------------------------------
 Guest:
   alias: 'gst'
   isDefault: true
@@ -15,10 +16,61 @@ Guest:
   - pocketmine.command.list
   - pperms.command.ppinfo
   worlds: []
+//Voter --------------------------------------------------------------------------------------------------------------
+Voter:
+  alias: 'vtr'
+  inheritance:
+  - Guest
+  permissions:
+  - 
+  worlds: []
+//Member --------------------------------------------------------------------------------------------------------------
+Member:
+  alias: 'mem'
+  inheritance:
+  - Voter
+  permissions:
+  worlds: []
+//Trainee --------------------------------------------------------------------------------------------------------------
+Trainee:
+  alias: 'train'
+  inheritance:
+  - Member
+  permissions:
+  worlds: []
+//Moderator --------------------------------------------------------------------------------------------------------------
+Moderator:
+  alias: 'mdr'
+  inheritance:
+  - Trainee
+  permissions:
+  worlds: []
+//Sr.Mod --------------------------------------------------------------------------------------------------------------
+Sr.Mod:
+  alias: 'srm'
+  inheritance:
+  - Builder
+  permissions:
+  worlds: []
+//Builder --------------------------------------------------------------------------------------------------------------
+Builder:
+  alias: 'bldr'
+  inheritance:
+  - Moderator
+  permissions:
+  worlds: []
+//Sr.Builder --------------------------------------------------------------------------------------------------------------
+Sr.Builder:
+  alias: 'srb'
+  inheritance:
+  - Admin
+  permissions:
+  worlds: []
+//Admin --------------------------------------------------------------------------------------------------------------
 Admin:
   alias: 'adm'
   inheritance:
-  - Guest
+  - Builder
   permissions:  
   - essentials.gamemode
   - pocketmine.broadcast
@@ -28,19 +80,25 @@ Admin:
   - pocketmine.command.teleport
   - pocketmine.command.time
   worlds: []
+//Developer --------------------------------------------------------------------------------------------------------------
+Developer:
+alias: 'dev'
+  inheritance:
+  - Owner
+  permissions:
+  worlds: []
+//Sr.Admin --------------------------------------------------------------------------------------------------------------
+Sr.Admin:
+  alias: 'sra'
+  inheritance:
+  - Owner
+  permissions:
+  worlds: []
+//Owner --------------------------------------------------------------------------------------------------------------
 Owner:
   alias: 'owr'
   inheritance:
-  - Admin
-  permissions:
-  - essentials
-  - pocketmine.command
-  - pperms.command
-  worlds: []
-OP:
-  alias: 'op'
-  inheritance: []
+  - Sr.Admin
   permissions:
   - '*'
   worlds: []
-...
